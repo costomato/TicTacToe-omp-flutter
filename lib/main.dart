@@ -19,11 +19,7 @@ class MainWidget extends StatelessWidget {
   }
 }
 
-late String joinerName,
-    yourSymbol,
-    creatorName = 'Null',
-    yourName,
-    roomCode = 'Null';
+late String joinerName, yourSymbol, creatorName, yourName, roomCode;
 String? move;
 late bool roomReady = false;
 BuildContext? _dialogContext;
@@ -304,9 +300,9 @@ class _MainState extends State<Main> {
   }
 
   var textButtonStyle = TextButton.styleFrom(
-    backgroundColor: Colors.grey,
+    backgroundColor: const Color.fromARGB(255, 205, 237, 237),
     shape: const RoundedRectangleBorder(
-      side: BorderSide(color: Colors.red, width: 2),
+      side: BorderSide(color: Color.fromARGB(255, 40, 145, 182), width: 2),
     ),
   );
 
@@ -324,6 +320,19 @@ class _MainState extends State<Main> {
     "b7": "",
     "b8": ""
   };
+
+  Text _getTextStyle(String index) {
+    return Text(
+      boardBtnTexts['b$index'] ?? "",
+      style: TextStyle(
+        fontSize: 36,
+        fontWeight: FontWeight.bold,
+        color: (boardBtnTexts['b$index'] == "O"
+            ? const Color.fromARGB(255, 130, 7, 7)
+            : const Color.fromARGB(255, 12, 6, 113)),
+      ),
+    );
+  }
 
   _updatePlayers(String newPlayer) {
     setState(() {
@@ -444,101 +453,47 @@ class _MainState extends State<Main> {
                     TextButton(
                       style: textButtonStyle,
                       onPressed: () => _boxListener("0"),
-                      child: Text(
-                        boardBtnTexts['b0'] ?? "",
-                        style: const TextStyle(
-                          fontSize: 30,
-                          color: Colors.white,
-                        ),
-                      ),
+                      child: _getTextStyle("0"),
                     ),
                     TextButton(
                       style: textButtonStyle,
                       onPressed: () => _boxListener("1"),
-                      child: Text(
-                        boardBtnTexts['b1'] ?? "",
-                        style: const TextStyle(
-                          fontSize: 30,
-                          color: Colors.white,
-                        ),
-                      ),
+                      child: _getTextStyle("1"),
                     ),
                     TextButton(
                       style: textButtonStyle,
                       onPressed: () => _boxListener("2"),
-                      child: Text(
-                        boardBtnTexts['b2'] ?? "",
-                        style: const TextStyle(
-                          fontSize: 30,
-                          color: Colors.white,
-                        ),
-                      ),
+                      child: _getTextStyle("2"),
                     ),
                     TextButton(
                       style: textButtonStyle,
                       onPressed: () => _boxListener("3"),
-                      child: Text(
-                        boardBtnTexts['b3'] ?? "",
-                        style: const TextStyle(
-                          fontSize: 30,
-                          color: Colors.white,
-                        ),
-                      ),
+                      child: _getTextStyle("3"),
                     ),
                     TextButton(
                       style: textButtonStyle,
                       onPressed: () => _boxListener("4"),
-                      child: Text(
-                        boardBtnTexts['b4'] ?? "",
-                        style: const TextStyle(
-                          fontSize: 30,
-                          color: Colors.white,
-                        ),
-                      ),
+                      child: _getTextStyle("4"),
                     ),
                     TextButton(
                       style: textButtonStyle,
                       onPressed: () => _boxListener("5"),
-                      child: Text(
-                        boardBtnTexts['b5'] ?? "",
-                        style: const TextStyle(
-                          fontSize: 30,
-                          color: Colors.white,
-                        ),
-                      ),
+                      child: _getTextStyle("5"),
                     ),
                     TextButton(
                       style: textButtonStyle,
                       onPressed: () => _boxListener("6"),
-                      child: Text(
-                        boardBtnTexts['b6'] ?? "",
-                        style: const TextStyle(
-                          fontSize: 30,
-                          color: Colors.white,
-                        ),
-                      ),
+                      child: _getTextStyle("6"),
                     ),
                     TextButton(
                       style: textButtonStyle,
                       onPressed: () => _boxListener("7"),
-                      child: Text(
-                        boardBtnTexts['b7'] ?? "",
-                        style: const TextStyle(
-                          fontSize: 30,
-                          color: Colors.white,
-                        ),
-                      ),
+                      child: _getTextStyle("7"),
                     ),
                     TextButton(
                       style: textButtonStyle,
                       onPressed: () => _boxListener("8"),
-                      child: Text(
-                        boardBtnTexts['b8'] ?? "",
-                        style: const TextStyle(
-                          fontSize: 30,
-                          color: Colors.white,
-                        ),
-                      ),
+                      child: _getTextStyle("8"),
                     ),
                   ],
                 ),
