@@ -61701,7 +61701,7 @@ T(a,b){return new A.tP(B.zF,"Tic Tac Toe",A.abl(null,B.DS),null)}}
 A.t9.prototype={
 aK(){return new A.IQ(A.abi(null),A.abi(null),A.abi(null),B.m)}}
 A.IQ.prototype={
-b4(){var s,r,q,p,o,n,m,l,k,j,i,h,g="https://tic-tac-toe-costomato.herokuapp.com",f="query"
+b4(){var s,r,q,p,o,n,m,l,k,j,i,h,g="https://tictactoe-kxqw.onrender.com/",f="query"
 this.bF()
 A.Nv().$1("connecting...")
 s=t.N
@@ -61711,7 +61711,7 @@ p=A.Gq(g)
 o=p.giH()+"://"+p.glZ(p)+":"+p.goQ(p)
 n=p.gkD(p)
 m=$.a8E.al(0,o)&&$.a8E.h(0,o).c.al(0,n)
-if(J.f(q.h(0,"forceNew"),!0)||J.f(q.h(0,"force new connection"),!0)||!1===q.h(0,"multiplex")||m){$.ak3().aE(B.k,"ignoring socket cache for https://tic-tac-toe-costomato.herokuapp.com",null,null)
+if(J.f(q.h(0,"forceNew"),!0)||J.f(q.h(0,"force new connection"),!0)||!1===q.h(0,"multiplex")||m){$.ak3().aE(B.k,"ignoring socket cache for https://tictactoe-kxqw.onrender.com/",null,null)
 l=A.aeX(q,g)}else{l=$.a8E.h(0,o)
 if(l==null){l=A.aeX(q,g)
 $.a8E.l(0,o,l)}}if(p.goX(p).length!==0&&q.h(0,f)==null)q.l(0,f,p.goX(p))
