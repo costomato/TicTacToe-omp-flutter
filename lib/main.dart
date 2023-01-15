@@ -39,9 +39,9 @@ class _HomeState extends State<Home> {
     super.initState();
     debugPrint('connecting...');
 
-    // socket = socket_io.io('https://tic-tac-toe-costomato.herokuapp.com');
+    // socket = socket_io.io('https://tictactoe-kxqw.onrender.com/');
     socket = socket_io
-        .io('https://tic-tac-toe-costomato.herokuapp.com', <String, dynamic>{
+        .io('https://tictactoe-kxqw.onrender.com/', <String, dynamic>{
       'transports': ['websocket'],
       'autoConnect': false,
     });
