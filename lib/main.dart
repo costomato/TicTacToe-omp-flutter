@@ -7,7 +7,7 @@ void main() {
 }
 
 class MainWidget extends StatelessWidget {
-  const MainWidget({Key? key}) : super(key: key);
+  const MainWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,19 +21,24 @@ class MainWidget extends StatelessWidget {
 
 late String joinerName, yourSymbol, creatorName, yourName, roomCode;
 String? move;
-late bool roomReady = false;
+bool roomReady = false;
 BuildContext? _dialogContext;
 late socket_io.Socket socket;
 
 class Home extends StatefulWidget {
-  const Home({Key? key, required this.title}) : super(key: key);
+  const Home({super.key, required this.title});
   final String title;
 
   @override
-  _HomeState createState() => _HomeState();
+  HomeState createState() => HomeState();
+
+  // @override
+  // State<Home> createState() {
+  //   return _HomeState();
+  // }
 }
 
-class _HomeState extends State<Home> {
+class HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
@@ -261,13 +266,18 @@ class _HomeState extends State<Home> {
 class Main extends StatefulWidget {
   final String title;
 
-  const Main({Key? key, required this.title}) : super(key: key);
+  const Main({super.key, required this.title});
 
   @override
-  _MainState createState() => _MainState();
+  MainState createState() => MainState();
+
+  // @override
+  // State<Main> createState() {
+  //   return _MainState();
+  // }
 }
 
-class _MainState extends State<Main> {
+class MainState extends State<Main> {
   @override
   void initState() {
     super.initState();
@@ -382,8 +392,9 @@ class _MainState extends State<Main> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-        onWillPop: () async {
+    return PopScope(
+      canPop: false,
+        onPopInvokedWithResult: (bool didPop, Object? result) async {
           showDialog(
             context: context,
             builder: (BuildContext dialogContext) {
@@ -406,7 +417,7 @@ class _MainState extends State<Main> {
               );
             },
           );
-          return false;
+          // return false;
         },
         child: Scaffold(
           appBar: AppBar(title: Text(widget.title)),
@@ -446,7 +457,7 @@ class _MainState extends State<Main> {
                 height: MediaQuery.of(context).size.width * 0.5,
                 width: MediaQuery.of(context).size.width * 0.5,
                 constraints:
-                    const BoxConstraints(maxWidth: 270, maxHeight: 270),
+                const BoxConstraints(maxWidth: 270, maxHeight: 270),
                 child: GridView.count(
                   crossAxisCount: 3,
                   children: <Widget>[
@@ -502,6 +513,7 @@ class _MainState extends State<Main> {
                 height: 11,
               ),
               Visibility(
+                visible: retryVisible,
                 child: TextButton(
                   child: const Text("Retry"),
                   onPressed: () {
@@ -509,7 +521,6 @@ class _MainState extends State<Main> {
                         {'roomCode': roomCode, 'symbol': yourSymbol});
                   },
                 ),
-                visible: retryVisible,
               ),
               const SizedBox(
                 height: 8,
